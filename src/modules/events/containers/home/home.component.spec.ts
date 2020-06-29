@@ -2,11 +2,11 @@ import { Component, DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { CleanBlogHeaderComponent } from './clean-blog-header.component';
+import { HomeComponent } from './home.component';
 
 @Component({
     template: `
-        <sb-clean-blog-header [someInput]="someInput" (someFunction)="someFunction($event)"></sb-clean-blog-header>
+        <sb-home [someInput]="someInput" (someFunction)="someFunction($event)"></sb-home>
     `,
 })
 class TestHostComponent {
@@ -14,19 +14,19 @@ class TestHostComponent {
     // someFunction(event: Event) {}
 }
 
-describe('CleanBlogHeaderComponent', () => {
+describe('HomeComponent', () => {
     let fixture: ComponentFixture<TestHostComponent>;
     let hostComponent: TestHostComponent;
     let hostComponentDE: DebugElement;
     let hostComponentNE: Element;
 
-    let component: CleanBlogHeaderComponent;
+    let component: HomeComponent;
     let componentDE: DebugElement;
     let componentNE: Element;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            declarations: [TestHostComponent, CleanBlogHeaderComponent],
+            declarations: [TestHostComponent, HomeComponent],
             imports: [NoopAnimationsModule],
             providers: [],
             schemas: [NO_ERRORS_SCHEMA],
@@ -45,6 +45,6 @@ describe('CleanBlogHeaderComponent', () => {
     });
 
     it('should display the component', () => {
-        expect(hostComponentNE.querySelector('sb-clean-blog-header')).toEqual(jasmine.anything());
+        expect(hostComponentNE.querySelector('sbpro-home')).toEqual(jasmine.anything());
     });
 });

@@ -1,6 +1,6 @@
 nav.navbar.navbar-expand-lg.navbar-light.fixed-top#mainNav
     .container
-        a.navbar-brand(routerLink='/') Start Bootstrap
+        a.navbar-brand(routerLink='/') Skydive Or Bust
         button.navbar-toggler.navbar-toggler-right(
             type='button',
             (click)='isMenuCollapsed = !isMenuCollapsed',
@@ -14,20 +14,8 @@ nav.navbar.navbar-expand-lg.navbar-light.fixed-top#mainNav
                 li.nav-item
                     a.nav-link(routerLink='/') Home
                 li.nav-item
-                    a.nav-link(routerLink='/about') About
+                    a.nav-link(routerLink='/events') Events
                 li.nav-item
-                    a.nav-link.icon(href='https://github.com/StartBootstrap/sb-clean-blog-angular', target='_blank')
-                        fa-icon([icon]='["fab", "github"]')
-                li.nav-item(
-                    *ngIf='isLoggedIn && isOnPost'
-                )
-                    a.nav-link.pointer(
-                        (click)='editPost()',
-                    ) Edit Post
-
-            form.form-inline.ml-lg-2(
-                *ngIf='isLoggedIn'
-            )
-                a.btn.btn-primary(routerLink='/new') New Post
+                    a.nav-link(routerLink='/records') Records
                 
                 

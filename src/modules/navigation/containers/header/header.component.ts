@@ -2,12 +2,12 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
 @Component({
-    selector: 'sb-clean-blog-header',
+    selector: 'sb-header',
     changeDetection: ChangeDetectionStrategy.OnPush,
-    templateUrl: './clean-blog-header.component.html',
-    styleUrls: ['clean-blog-header.component.scss'],
+    templateUrl: './header.component.html',
+    styleUrls: ['header.component.scss'],
 })
-export class CleanBlogHeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit {
     @Input() backgroundImage!: string;
     @Input() heading!: string;
     @Input() subHeading!: string;

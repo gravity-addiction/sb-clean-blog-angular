@@ -2,7 +2,7 @@ sb-layout-blog(
     *ngIf='(post$ | async) as post;',
 )
     
-    sb-clean-blog-header(
+    sb-header(
         [backgroundImage]='post.backgroundImage',
         [heading]='post.heading',
         [subHeading]='post.subHeading',

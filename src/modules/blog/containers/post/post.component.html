@@ -1,5 +1,5 @@
 <sb-layout-blog *ngIf="(post$ | async) as post;"
-    ><sb-clean-blog-header [backgroundImage]="post.backgroundImage" [heading]="post.heading" [subHeading]="post.subHeading" [meta]="post.meta"></sb-clean-blog-header>
+    ><sb-header [backgroundImage]="post.backgroundImage" [heading]="post.heading" [subHeading]="post.subHeading" [meta]="post.meta"></sb-header>
     <article>
         <div class="container">
             <div class="row">

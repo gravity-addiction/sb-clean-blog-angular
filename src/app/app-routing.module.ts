@@ -15,6 +15,16 @@ const routes: Routes = [
             import('modules/blog/blog-routing.module').then(m => m.BlogRoutingModule),
     },
     {
+        path: 'events',
+        loadChildren: () =>
+            import('modules/events/events-routing.module').then(m => m.EventsRoutingModule),
+    },
+    {
+        path: 'records',
+        loadChildren: () =>
+            import('modules/records/records-routing.module').then(m => m.RecordsRoutingModule),
+    },
+    {
         path: 'auth',
         loadChildren: () =>
             import('modules/auth/auth-routing.module').then(m => m.AuthRoutingModule),
