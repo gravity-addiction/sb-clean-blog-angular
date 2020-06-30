@@ -1,9 +1,11 @@
 /* tslint:disable: ordered-imports*/
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 /* Modules */
 import { AppCommonModule } from '@common/app-common.module';
@@ -33,6 +35,7 @@ import * as recordsServices from './services';
         HttpClientModule,
         AppCommonModule,
         NavigationModule,
+        NgxSpinnerModule,
     ],
     providers: [...recordsServices.services, ...recordsGuards.guards],
     declarations: [
@@ -41,5 +44,6 @@ import * as recordsServices from './services';
         ...recordsComponents.components,
     ],
     exports: [...recordsContainers.containers, ...recordsComponents.components],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class RecordsModule {}

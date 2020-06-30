@@ -1,0 +1,52 @@
+// Styling for the records page
+.record-preview {
+  margin-top: 30px;
+
+  .record-group {
+    font-size: 20px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+  .record-performance {
+    font-weight: 300;
+    margin: 0 0 5px;
+    text-align: left;
+  }
+  .record-category {
+    font-weight: 300;
+    margin: 0 0 5px;
+    text-align: left;
+  }
+  .record-date {
+    font-weight: 300;
+    margin: 0 0 5px;
+    text-align: right;
+  }
+  .record-dropzone {
+    font-weight: 300;
+    margin: 0 0 10px;
+    text-align: left;
+  }
+  .record-meta {
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 0;
+    color: $gray-600;
+    > a {
+      text-decoration: none;
+      color: $gray-900;
+      &:focus,
+      &:hover {
+        text-decoration: underline;
+        color: $primary;
+      }
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    > a {
+      > .record-title {
+        font-size: 36px;
+      }
+    }
+  }
+}

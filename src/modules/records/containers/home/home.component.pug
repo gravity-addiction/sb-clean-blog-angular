@@ -8,9 +8,46 @@ sb-layout-blog
     )
 
     ng-container
-        div(
-            class='text-center',
+        div.text-center(
             (click)='stateClicked($event)'
         )
             include usa.svg
-            h3 {{ recordState | sbStateAbbr }} Records
+        div.text-center(
+            style='min-height: 100px;'
+        )
+            h2 {{ recordState | sbStateAbbr }} Records
+
+            div(
+                *ngIf='records$ | async as records'
+            )          
+                .container
+                    .row
+                        .col-lg-8.col-md-10.mx-auto
+                            .record-preview(
+                                *ngFor='let recordGroup of records'
+                            )
+                                .row
+                                    .col-xl-12
+                                        h4.record-title {{recordGroup.record }}
+                                .row(
+                                    *ngFor='let record of recordGroup.records'
+                                )
+                                    .col-xl-4
+                                        p.record-performance {{ record.performance }}
+                                    .col-xl-4
+                                        p.record-category {{ record.category }}
+                                    .col-xl-4
+                                        p.record-date {{ record.uspadate | date }}
+                                    .col-xl-12
+                                        p.record-dropzone {{ record.location }}
+
+            div(
+                style="position: relative;height:100px;"
+            )
+                ngx-spinner(
+                    bdColor='rgba(0,0,0,0)',
+                    color='blue',
+                    size='medium',
+                    [fullScreen]='false'
+                )
+                    h3(style='padding-top: 100px;') Loading...

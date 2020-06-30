@@ -174,7 +174,31 @@
                     </g>
                 </g>
             </svg>
-            <h3>{{ recordState | sbStateAbbr }} Records</h3>
+        </div>
+        <div class="text-center" style="min-height: 100px;">
+            <h2>{{ recordState | sbStateAbbr }} Records</h2>
+            <div *ngIf="records$ | async as records">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-10 mx-auto">
+                            <div class="record-preview" *ngFor="let recordGroup of records">
+                                <div class="row">
+                                    <div class="col-xl-12"><h4 class="record-title">{{recordGroup.record }}</h4></div>
+                                </div>
+                                <div class="row" *ngFor="let record of recordGroup.records">
+                                    <div class="col-xl-4"><p class="record-performance">{{ record.performance }}</p></div>
+                                    <div class="col-xl-4"><p class="record-category">{{ record.category }}</p></div>
+                                    <div class="col-xl-4"><p class="record-date">{{ record.uspadate | date }}</p></div>
+                                    <div class="col-xl-12"><p class="record-dropzone">{{ record.location }}</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="position: relative;height:100px;">
+                <ngx-spinner bdColor="rgba(0,0,0,0)" color="blue" size="medium" [fullScreen]="false"><h3 style="padding-top: 100px;">Loading...</h3></ngx-spinner>
+            </div>
         </div></ng-container
     ></sb-layout-blog
 >

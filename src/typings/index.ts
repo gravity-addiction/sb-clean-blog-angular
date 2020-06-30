@@ -5,4 +5,5 @@ export * from './auth';
 export * from './common';
 export * from './post';
 export * from './profile';
+export * from './records';
 export * from './user';
