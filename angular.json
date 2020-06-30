@@ -23,7 +23,15 @@
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "tsconfig.app.json",
                         "aot": false,
-                        "assets": ["src/favicon.png", "src/assets"],
+                        "assets": [
+                            "src/favicon.png",
+                            "src/assets",
+                            {
+                              "glob": ".htaccess",
+                              "input": "src",
+                              "output": "/"
+                            }
+                        ],
                         "styles": ["src/styles/styles.scss"],
                         "stylePreprocessorOptions": {
                             "includePaths": ["src", "./node_modules"]

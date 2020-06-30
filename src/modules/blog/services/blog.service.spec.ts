@@ -40,7 +40,9 @@ describe('BlogService', () => {
             blogService.getPosts$().subscribe(response => {
                 expect(response.length).toEqual(1);
             });
-            const req = httpTestingController.expectOne('http://localhost:8200/api/latest/posts');
+            const req = httpTestingController.expectOne(
+                'https://skydiveorbust.com/api/latest/posts'
+            );
             expect(req.request.method).toEqual('GET');
             req.flush([new MockPost()]);
         });
@@ -54,7 +56,9 @@ describe('BlogService', () => {
                     })
                 )
                 .subscribe(response => {});
-            const req = httpTestingController.expectOne('http://localhost:8200/api/latest/posts');
+            const req = httpTestingController.expectOne(
+                'https://skydiveorbust.com/api/latest/posts'
+            );
             expect(req.request.method).toEqual('GET');
             req.error(new ErrorEvent('TEST_ERROR'));
         });
@@ -66,7 +70,7 @@ describe('BlogService', () => {
                 expect(response).toBeTruthy();
             });
             const req = httpTestingController.expectOne(
-                'http://localhost:8200/api/latest/posts/TEST_SLUG?findBy=slug'
+                'https://skydiveorbust.com/api/latest/posts/TEST_SLUG?findBy=slug'
             );
             expect(req.request.method).toEqual('GET');
             req.flush(new MockPost());
@@ -82,7 +86,7 @@ describe('BlogService', () => {
                 )
                 .subscribe(response => {});
             const req = httpTestingController.expectOne(
-                'http://localhost:8200/api/latest/posts/TEST_SLUG?findBy=slug'
+                'https://skydiveorbust.com/api/latest/posts/TEST_SLUG?findBy=slug'
             );
             expect(req.request.method).toEqual('GET');
             req.error(new ErrorEvent('TEST_ERROR'));
@@ -94,7 +98,9 @@ describe('BlogService', () => {
             blogService.createPost$(new MockCreatePostPayload()).subscribe(response => {
                 expect(response).toBeTruthy();
             });
-            const req = httpTestingController.expectOne('http://localhost:8200/api/latest/posts');
+            const req = httpTestingController.expectOne(
+                'https://skydiveorbust.com/api/latest/posts'
+            );
             expect(req.request.method).toEqual('POST');
             req.flush(new MockPost());
         });
@@ -108,7 +114,9 @@ describe('BlogService', () => {
                     })
                 )
                 .subscribe(response => {});
-            const req = httpTestingController.expectOne('http://localhost:8200/api/latest/posts');
+            const req = httpTestingController.expectOne(
+                'https://skydiveorbust.com/api/latest/posts'
+            );
             expect(req.request.method).toEqual('POST');
             req.error(new ErrorEvent('TEST_ERROR'));
         });
@@ -122,7 +130,7 @@ describe('BlogService', () => {
                     expect(response).toBeTruthy();
                 });
             const req = httpTestingController.expectOne(
-                'http://localhost:8200/api/latest/posts/00000000-0000-0000-0000-000000000001'
+                'https://skydiveorbust.com/api/latest/posts/00000000-0000-0000-0000-000000000001'
             );
             expect(req.request.method).toEqual('PUT');
             req.flush(new MockPost());
@@ -138,7 +146,7 @@ describe('BlogService', () => {
                 )
                 .subscribe(response => {});
             const req = httpTestingController.expectOne(
-                'http://localhost:8200/api/latest/posts/00000000-0000-0000-0000-000000000001'
+                'https://skydiveorbust.com/api/latest/posts/00000000-0000-0000-0000-000000000001'
             );
             expect(req.request.method).toEqual('PUT');
             req.error(new ErrorEvent('TEST_ERROR'));
@@ -151,7 +159,7 @@ describe('BlogService', () => {
                 expect(response).toBeTruthy();
             });
             const req = httpTestingController.expectOne(
-                'http://localhost:8200/api/latest/posts/00000000-0000-0000-0000-000000000001'
+                'https://skydiveorbust.com/api/latest/posts/00000000-0000-0000-0000-000000000001'
             );
             expect(req.request.method).toEqual('DELETE');
             req.flush(new MockPost());
@@ -167,7 +175,7 @@ describe('BlogService', () => {
                 )
                 .subscribe(response => {});
             const req = httpTestingController.expectOne(
-                'http://localhost:8200/api/latest/posts/00000000-0000-0000-0000-000000000001'
+                'https://skydiveorbust.com/api/latest/posts/00000000-0000-0000-0000-000000000001'
             );
             expect(req.request.method).toEqual('DELETE');
             req.error(new ErrorEvent('TEST_ERROR'));

@@ -1,5 +1,7 @@
 import { Post } from '@modules/blog/models';
-import { CreatePostPayload, UpdatePostPayload } from '@start-bootstrap/sb-clean-blog-shared-types';
+
+import { CreatePostPayload, UpdatePostPayload } from '../../typings';
+
 export { Post };
 
 export class MockPost implements Post {

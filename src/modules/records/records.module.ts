@@ -18,6 +18,9 @@ import * as recordsContainers from './containers';
 /* Guards */
 import * as recordsGuards from './guards';
 
+/* Pipes */
+import * as recordsPipes from './pipes';
+
 /* Services */
 import * as recordsServices from './services';
 
@@ -32,7 +35,11 @@ import * as recordsServices from './services';
         NavigationModule,
     ],
     providers: [...recordsServices.services, ...recordsGuards.guards],
-    declarations: [...recordsContainers.containers, ...recordsComponents.components],
+    declarations: [
+        ...recordsPipes.pipes,
+        ...recordsContainers.containers,
+        ...recordsComponents.components,
+    ],
     exports: [...recordsContainers.containers, ...recordsComponents.components],
 })
 export class RecordsModule {}

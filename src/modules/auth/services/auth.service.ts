@@ -3,9 +3,10 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfigService } from '@common/services';
 import { User } from '@modules/auth/models';
-import { LoginPayload, TokenResponse } from '@start-bootstrap/sb-clean-blog-shared-types';
 import { from, Observable, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
+
+import { LoginPayload, TokenResponse } from '../../../typings';
 
 import { AuthUtilsService } from './auth-utils.service';
 

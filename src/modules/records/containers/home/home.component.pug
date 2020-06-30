@@ -8,3 +8,9 @@ sb-layout-blog
     )
 
     ng-container
+        div(
+            class='text-center',
+            (click)='stateClicked($event)'
+        )
+            include usa.svg
+            h3 {{ recordState | sbStateAbbr }} Records

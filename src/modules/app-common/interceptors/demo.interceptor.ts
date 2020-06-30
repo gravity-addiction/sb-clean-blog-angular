@@ -7,7 +7,6 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ConfigService, UtilityService } from '@common/services';
-import { CreatePostPayload, UpdatePostPayload } from '@start-bootstrap/sb-clean-blog-shared-types';
 import { Post } from '@testing/mocks';
 import { paramCase } from 'change-case';
 import base64 from 'crypto-js/enc-base64';
@@ -16,6 +15,8 @@ import hmacSHA256 from 'crypto-js/hmac-sha256';
 import { format } from 'date-fns';
 import { Observable, of } from 'rxjs';
 import { v4 as uuid } from 'uuid';
+
+import { CreatePostPayload, UpdatePostPayload } from '../../../typings';
 
 import demoConfig from './demo.config.json';
 

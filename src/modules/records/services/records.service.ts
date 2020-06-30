@@ -8,5 +8,4 @@ export class RecordsService {
     getRecords$(): Observable<{}> {
         return of({});
     }
-
 }

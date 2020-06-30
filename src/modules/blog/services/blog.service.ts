@@ -3,13 +3,10 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfigService } from '@common/services';
 import { Post } from '@modules/blog/models';
-import {
-    CreatePostPayload,
-    ResultsPost,
-    UpdatePostPayload,
-} from '@start-bootstrap/sb-clean-blog-shared-types';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+
+import { CreatePostPayload, ResultsPost, UpdatePostPayload } from '../../../typings';
 
 @Injectable()
 export class BlogService {

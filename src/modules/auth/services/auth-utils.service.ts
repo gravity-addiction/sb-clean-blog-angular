@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { UtilityService } from '@common/services';
-import { Token } from '@start-bootstrap/sb-clean-blog-shared-types';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 
+import { Token } from '../../../typings';
 import { User } from '../models';
 
 const _isLoggedIn$ = new BehaviorSubject(false);

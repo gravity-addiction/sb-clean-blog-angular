@@ -3,11 +3,12 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { ConfigService } from '@common/services';
-import { TestLoginPayload } from '@start-bootstrap/sb-clean-blog-shared-types';
 import { MockUser } from '@testing/mocks';
 import { AuthUtilsServiceStub, ConfigServiceStub, RouterStub } from '@testing/stubs';
 import { of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+
+import { TestLoginPayload } from '../../../typings';
 
 import { AuthUtilsService } from '.';
 import { AuthService } from './auth.service';
@@ -49,7 +50,7 @@ describe('AuthService', () => {
                 expect(response).toBeTruthy();
             });
             const req = httpTestingController.expectOne(
-                'http://localhost:8200/api/latest/auth/login'
+                'https://skydiveorbust.com/api/latest/auth/login'
             );
             expect(req.request.method).toEqual('POST');
             req.flush('TEST_TOKEN');
@@ -72,7 +73,7 @@ describe('AuthService', () => {
                     expect(response).toBeFalsy();
                 });
             const req = httpTestingController.expectOne(
-                'http://localhost:8200/api/latest/auth/login'
+                'https://skydiveorbust.com/api/latest/auth/login'
             );
             expect(req.request.method).toEqual('POST');
             req.flush('TEST_TOKEN');
