@@ -6,9 +6,14 @@ export interface ResultsRecordGroup {
     performance?: string;
 }
 
-export interface ResultsRecordGrouped {
+export interface ResultsRecordGroupClassed {
     record: string;
     records: Array<ResultsRecordGroup>;
+}
+
+export interface ResultsRecordGrouped {
+    subclass?: string;
+    records: Array<ResultsRecordGroupClassed>;
 }
 
 export interface ResultsRecordUSPA {

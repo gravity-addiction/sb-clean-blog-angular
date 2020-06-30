@@ -180,16 +180,21 @@
             <div *ngIf="records$ | async as records">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-8 col-md-10 mx-auto">
+                        <div class="col-xl-12">
                             <div class="record-preview" *ngFor="let recordGroup of records">
                                 <div class="row">
-                                    <div class="col-xl-12"><h4 class="record-title">{{recordGroup.record }}</h4></div>
+                                    <div class="col-xl-12"><h3 class="record-title">{{recordGroup.subclass }}</h3></div>
                                 </div>
-                                <div class="row" *ngFor="let record of recordGroup.records">
-                                    <div class="col-xl-4"><p class="record-performance">{{ record.performance }}</p></div>
-                                    <div class="col-xl-4"><p class="record-category">{{ record.category }}</p></div>
-                                    <div class="col-xl-4"><p class="record-date">{{ record.uspadate | date }}</p></div>
-                                    <div class="col-xl-12"><p class="record-dropzone">{{ record.location }}</p></div>
+                                <div class="row" *ngFor="let recordSubgroup of recordGroup.records">
+                                    <div class="col-lg-10 mx-auto">
+                                        <h5 class="record-subtitle">{{ recordSubgroup.record }}</h5>
+                                        <div class="row" *ngFor="let record of recordSubgroup.records">
+                                            <div class="col-xl-4"><p class="record-performance">{{ record.performance }}</p></div>
+                                            <div class="col-xl-4"><p class="record-category">{{ record.category }}</p></div>
+                                            <div class="col-xl-4"><p class="record-date">{{ record.uspadate | date }}</p></div>
+                                            <div class="col-xl-12"><p class="record-dropzone">{{ record.location }}</p></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
