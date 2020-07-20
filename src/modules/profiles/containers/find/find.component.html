@@ -1,1 +1,19 @@
-<sb-layout-blog><sb-header backgroundImage='url("assets/img/ron_shipp/16-way-2-bg.jpg")' heading="Search Profiles" subHeading="" [siteHeading]="true"></sb-header><ng-container></ng-container></sb-layout-blog>
+<sb-layout-blog
+    ><sb-header backgroundImage='url("assets/img/ron_shipp/16-way-2-bg.jpg")' heading="Search Profiles" subHeading="Skydiving Record &amp; Performance Database" [siteHeading]="true" [profileSearching]="true"></sb-header
+    ><ng-container
+        ><div *ngIf="profileService.profileSearch$ | async as profiles; else noEntry">
+            <div class="container" *ngIf="profiles.results.length; else noEntry">
+                <div class="row">
+                    <div class="col"><h3 class="text-left">Select Profile:</h3></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 col-xs-12" style="text-align: left; white-space: nowrap;" *ngFor="let profile of profiles.results;let pi = index;"><a [routerLink]='"/p/" + profile.slug'>{{ profile.name }}</a></div>
+                </div>
+                <hr />
+            </div>
+        </div>
+        <div style="position: relative;height:100px;">
+            <ngx-spinner bdColor="rgba(0,0,0,0)" color="#ff5e00" size="medium" [fullScreen]="false"><h3 style="padding-top: 100px;">... Searching ...</h3></ngx-spinner>
+        </div></ng-container
+    ></sb-layout-blog
+><ng-template #noEntry><div class="text-center">Enter a name into the box above to find profiles</div></ng-template>

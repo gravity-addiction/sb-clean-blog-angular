@@ -23,8 +23,8 @@ $green:   #28a745 !default;
 $teal:    #0085A1 !default;
 $cyan:    #17a2b8 !default;
 
-$primary:       $teal !default;
-$secondary:     $gray-600 !default;
+$primary:       $orange !default;
+$secondary:     $blue !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
@@ -40,7 +40,7 @@ $code-font-size-sm: 85% !default;
 $pre-color: $gray-600 !default;
 
 // Code variables
-$code-font-family: Roboto Mono, monospace !default;
+$code-font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
 
 // Variables for <pre> element
 $pre-bg: $gray-100;

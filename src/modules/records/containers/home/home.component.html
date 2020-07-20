@@ -1,7 +1,8 @@
 <sb-layout-blog
     ><sb-header backgroundImage='url("assets/img/ron_shipp/16-way-2-bg.jpg")' heading="Records" subHeading="Skydiving Record &amp; Performance Database" [siteHeading]="true"></sb-header
     ><ng-container
-        ><div class="text-center" (click)="stateClicked($event)">
+        ><div class="text-center" (click)="stateClicked($event)" #pageTop>
+            <p class="text-center">Click On The Map For State Records</p>
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 959 593" id="us-map">
                 <g class="state">
                     <path
@@ -180,29 +181,39 @@
             <div *ngIf="records$ | async as records">
                 <div class="container">
                     <div class="row">
+                        <div class="col-md-3 col-sm-6 col-xs-12" style="text-align: left; white-space: nowrap;" *ngFor="let recordGroup of records;let ri = index;"><a style="cursor: pointer;text-decoration:underline;" (click)="scrollToSubclass(ri)">{{ recordGroup.subclass }}</a></div>
+                    </div>
+                    <hr />
+                    <div class="row">
                         <div class="col-xl-12">
                             <div class="record-preview" *ngFor="let recordGroup of records">
-                                <div class="row">
-                                    <div class="col-xl-12"><h3 class="record-title">{{recordGroup.subclass }}</h3></div>
+                                <div class="row" #recordSubclass>
+                                    <div class="col-xl-12">
+                                        <h3 class="record-title">
+                                            <fa-stack style="float: left;" size="xs" (click)="scrollToTop()"><fa-icon class="fa-stack-2x" [icon]='["fas", "circle"]' stackItemSize="2x"></fa-icon><fa-icon class="fa-stack-1x fa-inverse" [icon]='["fas", "arrow-up"]' stackItemSize="1x"></fa-icon></fa-stack>
+                                            <p>{{ recordGroup.subclass }}</p>
+                                        </h3>
+                                    </div>
                                 </div>
-                                <div class="row" *ngFor="let recordSubgroup of recordGroup.records">
+                                <div class="row record-subclass-row" *ngFor="let recordSubgroup of recordGroup.records">
+                                    <div class="col-xs-12 col-lg-11 mx-auto record-subtitle-header"><p class="record-subtitle">{{ recordSubgroup.record }}</p></div>
                                     <div class="col-lg-10 mx-auto">
-                                        <h5 class="record-subtitle">{{ recordSubgroup.record }}</h5>
-                                        <div class="row" *ngFor="let record of recordSubgroup.records">
-                                            <div class="col-xl-4"><p class="record-performance">{{ record.performance }}</p></div>
-                                            <div class="col-xl-4"><p class="record-category">{{ record.category }}</p></div>
-                                            <div class="col-xl-4"><p class="record-date">{{ record.uspadate | date }}</p></div>
-                                            <div class="col-xl-12"><p class="record-dropzone">{{ record.location }}</p></div>
+                                        <div class="row record-entry" *ngFor="let record of recordSubgroup.records">
+                                            <div class="col-7"><p class="record-performance">{{ record.performance }}</p></div>
+                                            <div class="col-5"><p class="record-category">{{ record.category }}</p></div>
+                                            <div class="col-8"><p class="record-dropzone">{{ record.location }}</p></div>
+                                            <div class="col-4"><p class="record-date">{{ record.uspadate | date }}</p></div>
                                         </div>
                                     </div>
                                 </div>
+                                <hr />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div style="position: relative;height:100px;">
-                <ngx-spinner bdColor="rgba(0,0,0,0)" color="blue" size="medium" [fullScreen]="false"><h3 style="padding-top: 100px;">Loading...</h3></ngx-spinner>
+                <ngx-spinner bdColor="rgba(0,0,0,0)" color="#ff5e00" size="medium" [fullScreen]="false"><h3 style="padding-top: 100px;">Loading...</h3></ngx-spinner>
             </div>
         </div></ng-container
     ></sb-layout-blog

@@ -9,28 +9,22 @@
   }
 
   .state {
-      fill:#D3D3D3;
+      fill:#cccccc;
   }
 }
 
 #us-map:hover:not(path:hover):not(circle:hover) {
-  stroke: #002868 !important;
+  stroke: #ff5e00 !important;
   stroke-width: 1px;
   stroke-linejoin: round;
-  fill: #002868 !important;
+  fill: #ff5e00 !important;
   cursor: pointer;
 }
 
 path:hover, circle:hover {
-  stroke: #002868 !important;
+  stroke: #ff5e00 !important;
   stroke-width: 2px;
   stroke-linejoin: round;
-  fill: #002868 !important;
+  fill: #ff5e00 !important;
   cursor: pointer;
-}
-
-#path67 {
-  fill: none !important;
-  stroke: #A9A9A9 !important;
-  cursor: default;
 }

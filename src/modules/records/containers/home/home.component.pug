@@ -9,9 +9,12 @@ sb-layout-blog
 
     ng-container
         div.text-center(
-            (click)='stateClicked($event)'
+            (click)='stateClicked($event)',
+            #pageTop
         )
+            p.text-center Click On The Map For State Records
             include usa.svg
+
         div.text-center(
             style='min-height: 100px;'
         )
@@ -22,37 +25,59 @@ sb-layout-blog
             )          
                 .container
                     .row
+                        .col-md-3.col-sm-6.col-xs-12(
+                            style='text-align: left; white-space: nowrap;',
+                            *ngFor='let recordGroup of records;let ri = index;'
+                        )
+                            a(
+                                style='cursor: pointer;text-decoration:underline;',
+                                (click)='scrollToSubclass(ri)'
+                            ) {{ recordGroup.subclass }}
+                    hr
+                    .row
                         .col-xl-12
                             .record-preview(
                                 *ngFor='let recordGroup of records'
                             )
-                                .row
-                                    .col-xl-12
-                                        h3.record-title {{recordGroup.subclass }}
                                 .row(
+                                    #recordSubclass
+                                )
+                                    .col-xl-12
+                                        h3.record-title 
+                                            fa-stack(
+                                                style='float: left;',
+                                                size='xs',
+                                                (click)='scrollToTop()'
+                                            )
+                                                fa-icon.fa-stack-2x([icon]='["fas", "circle"]', stackItemSize="2x")
+                                                fa-icon.fa-stack-1x.fa-inverse([icon]='["fas", "arrow-up"]', stackItemSize="1x")
+                                            p {{ recordGroup.subclass }}
+                                .row.record-subclass-row(
                                     *ngFor='let recordSubgroup of recordGroup.records'
                                 )
+                                    .col-xs-12.col-lg-11.mx-auto.record-subtitle-header
+                                        p.record-subtitle {{ recordSubgroup.record }}
                                     .col-lg-10.mx-auto
-                                        h5.record-subtitle {{ recordSubgroup.record }}
 
-                                        .row(
+                                        .row.record-entry(
                                             *ngFor='let record of recordSubgroup.records'
                                         )
-                                            .col-xl-4
+                                            .col-7
                                                 p.record-performance {{ record.performance }}
-                                            .col-xl-4
+                                            .col-5
                                                 p.record-category {{ record.category }}
-                                            .col-xl-4
-                                                p.record-date {{ record.uspadate | date }}
-                                            .col-xl-12
+                                            .col-8
                                                 p.record-dropzone {{ record.location }}
+                                            .col-4
+                                                p.record-date {{ record.uspadate | date }}
+                                hr
 
             div(
                 style="position: relative;height:100px;"
             )
                 ngx-spinner(
                     bdColor='rgba(0,0,0,0)',
-                    color='blue',
+                    color='#ff5e00',
                     size='medium',
                     [fullScreen]='false'
                 )

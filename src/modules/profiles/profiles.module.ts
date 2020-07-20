@@ -5,9 +5,12 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 /* Modules */
 import { AppCommonModule } from '@common/app-common.module';
 import { NavigationModule } from '@modules/navigation/navigation.module';
+import { RecordsProfileModule } from '@modules/records/components/records-profile-a/records-profile.module';
 
 /* Components */
 import * as profilesComponents from './components';
@@ -30,6 +33,9 @@ import * as profilesServices from './services';
         HttpClientModule,
         AppCommonModule,
         NavigationModule,
+        NgxSpinnerModule,
+
+        RecordsProfileModule,
     ],
     providers: [...profilesServices.services, ...profilesGuards.guards],
     declarations: [...profilesContainers.containers, ...profilesComponents.components],

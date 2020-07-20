@@ -14,7 +14,7 @@ describe('ProfileService', () => {
 
     describe('getProfile$', () => {
         it('should return Observable<{}}>', () => {
-            profileService.getProfile$().subscribe(response => {
+            profileService.getProfile$('gary_taylor').subscribe(response => {
                 expect(response).toEqual({});
             });
         });

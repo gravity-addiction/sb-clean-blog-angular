@@ -17,6 +17,10 @@ export const ROUTES: Routes = [
         path: '',
         component: recordsContainers.HomeComponent,
     },
+    {
+        path: ':state',
+        component: recordsContainers.HomeComponent,
+    },
 ];
 
 @NgModule({

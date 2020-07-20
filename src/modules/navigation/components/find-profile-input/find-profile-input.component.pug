@@ -1,0 +1,16 @@
+div
+    input(
+        #searchString,
+        type='text',
+        size='40',
+        class='profileSearchInp',
+        [formControl]="queryField",
+        name='searchString',
+        id='searchString',
+        autofocus
+    )
+    button(
+        type='button',
+        class='profileSearchBtn',
+        (click)='profileService.searchProfile$(searchString)'
+    ) Search

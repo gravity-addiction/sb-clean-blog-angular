@@ -124,4 +124,18 @@ export class RecordsService {
                 )
             );
     }
+
+    getRecordsByPerson$(profileId: string): Observable<ResultsRecordUSPA[]> {
+        return this.http
+            .get<ResultsRecordUSPA[]>(
+                `${this.configService.config.sbCleanBlogNodeURL}/api/latest/records/person/${profileId}`
+            )
+            .pipe(
+                map(records =>
+                    (records as ResultsRecordUSPA[]).map(record => {
+                        return record;
+                    })
+                )
+            );
+    }
 }

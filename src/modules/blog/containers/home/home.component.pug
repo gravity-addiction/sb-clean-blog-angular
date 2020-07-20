@@ -7,7 +7,7 @@ sb-layout-blog
         [siteHeading]='true'
     )
 
-    sb-demo-info(*ngIf='!isLoggedIn')
+    // sb-demo-info(*ngIf='!isLoggedIn')
 
     ng-container(
         *ngIf='posts$ | async as posts'

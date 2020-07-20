@@ -1,1 +1,9 @@
-<sb-layout-blog *ngIf="(profile$ | async) as profile;"><sb-header backgroundImage='url("assets/img/ron_shipp/16-way-2-bg.jpg")' [heading]="profile.name" subHeading="Loading Competitor Info" [siteHeading]="true"></sb-header><ng-container></ng-container></sb-layout-blog>
+<sb-layout-blog *ngIf="(profile$ | async) as profile;"
+    ><sb-header backgroundImage='url("assets/img/ron_shipp/16-way-2-bg.jpg")' [heading]="profile.name" subHeading="" [siteHeading]="true"></sb-header
+    ><ng-container
+        ><sb-records-profile-a *ngIf="profile.people_id" [peopleId]="profile.people_id"></sb-records-profile-a>
+        <div style="position: relative;height:100px;">
+            <ngx-spinner bdColor="rgba(0,0,0,0)" color="#ff5e00" size="medium" [fullScreen]="false"><h3 style="padding-top: 100px;">... Loading Stats ...</h3></ngx-spinner>
+        </div></ng-container
+    ></sb-layout-blog
+>

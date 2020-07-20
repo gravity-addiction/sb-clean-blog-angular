@@ -8,8 +8,10 @@ import {
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthUtilsService } from '@modules/auth/services';
 import { ProfileService } from '@modules/profiles/services';
+import { RecordsService } from '@modules/records/services';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Observable, Subscription } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { map, switchMap, tap } from 'rxjs/operators';
 
 import { Profile } from '../../models/';
 
@@ -29,19 +31,19 @@ export class ProfileComponent implements OnInit, OnDestroy {
         private authUtilsService: AuthUtilsService,
         private changeDetectorRef: ChangeDetectorRef,
         private profileService: ProfileService,
-        private route: ActivatedRoute
+        private recordsService: RecordsService,
+        private route: ActivatedRoute,
+        private spinner: NgxSpinnerService
     ) {}
 
     ngOnInit() {
-        console.log('OPTN');
+        this.spinner.show();
+
         this.profile$ = this.route.paramMap.pipe(
             tap((params: ParamMap) => {
-                console.log('HERE', params.get('profile'));
-                return (this.profile = params.get('profile') as string);
+                return (this.profile = (params.get('profile') as string).replace(' ', '_'));
             }),
-            switchMap((params: ParamMap) =>
-                this.profileService.getProfile$(params.get('profile') as string)
-            )
+            switchMap((params: ParamMap) => this.profileService.getProfile$(this.profile))
         );
         this.subscription.add(
             this.authUtilsService.isLoggedIn$().subscribe(isLoggedIn => {

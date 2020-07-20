@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 
 @Component({
@@ -13,6 +14,9 @@ export class HeaderComponent implements OnInit {
     @Input() subHeading!: string;
     @Input() meta!: string;
     @Input() siteHeading = false;
+    @Input() profileSearching = false;
+
+    queryField: FormControl = new FormControl();
 
     safeBackgroudImage!: SafeStyle;
 

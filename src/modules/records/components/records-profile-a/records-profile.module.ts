@@ -13,19 +13,15 @@ import { NavigationModule } from '@modules/navigation/navigation.module';
 import { RecordsServiceModule } from '@modules/records/services/records.module';
 
 /* Components */
-import * as recordsComponents from './components';
+import { RecordsProfileAComponent } from './records-profile-a.component';
 
 /* Containers */
-import * as recordsContainers from './containers';
 
 /* Guards */
-import * as recordsGuards from './guards';
 
 /* Pipes */
-import * as recordsPipes from './pipes';
 
 /* Services */
-import * as recordsServices from './services';
 
 @NgModule({
     imports: [
@@ -40,13 +36,8 @@ import * as recordsServices from './services';
 
         RecordsServiceModule,
     ],
-    providers: [...recordsServices.services, ...recordsGuards.guards],
-    declarations: [
-        ...recordsPipes.pipes,
-        ...recordsContainers.containers,
-        ...recordsComponents.components,
-    ],
-    exports: [...recordsContainers.containers, ...recordsComponents.components],
+    declarations: [RecordsProfileAComponent],
+    exports: [RecordsProfileAComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class RecordsModule {}
+export class RecordsProfileModule {}

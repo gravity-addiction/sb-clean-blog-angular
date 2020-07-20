@@ -1,4 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ProfileService } from '@modules/profiles/services';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Observable, Subscription } from 'rxjs';
+import { switchMap, tap } from 'rxjs/operators';
 
 @Component({
     selector: 'sb-find',
@@ -7,6 +11,6 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
     styleUrls: ['find.component.scss'],
 })
 export class FindComponent implements OnInit {
-    constructor() {}
+    constructor(public profileService: ProfileService, private spinner: NgxSpinnerService) {}
     ngOnInit() {}
 }
